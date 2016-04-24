@@ -1,0 +1,64 @@
+rm -rf ../bin/*
+
+gcc procedureCall.c ../include/rdtsc.c -o ../bin/procedureCall
+nice ../bin/procedureCall
+ --- [ Benchmarking Procedure Call ] --- 
+ - Running with 0 argument
+ Time to run 1000 iteration  : 24052 
+ Average ReadOverhead        : 24.052000 
+ - Running with 1 argument
+ Time to run 1000 iteration  : 24040 
+ Average ReadOverhead        : 24.040000 
+ - Running with 2 argument
+ Time to run 1000 iteration  : 24036 
+ Average ReadOverhead        : 24.036000 
+ - Running with 3 argument
+ Time to run 1000 iteration  : 24040 
+ Average ReadOverhead        : 24.040000 
+ - Running with 4 argument
+ Time to run 1000 iteration  : 24032 
+ Average ReadOverhead        : 24.032000 
+ - Running with 5 argument
+ Time to run 1000 iteration  : 24032 
+ Average ReadOverhead        : 24.032000 
+ - Running with 6 argument
+ Time to run 1000 iteration  : 24040 
+ Average ReadOverhead        : 24.040000 
+ - Running with 7 argument
+ Time to run 1000 iteration  : 24044 
+ Average ReadOverhead        : 24.044000 
+ - Final ... 
+gcc syscall.c ../include/rdtsc.c -o ../bin/syscall
+nice ../bin/syscall
+ --- [ Benchmarking Syscall ] --- 
+ Time to run 1000 iteration  : 31608 
+ Average ReadOverhead        : 31.608000 
+gcc thread_creation.c ../include/rdtsc.c -o ../bin/threadCreation
+nice ../bin/threadCreation
+ --- [ Benchmarking Thread Creation ] --- 
+ Time to run 1000 iteration  : 18382622 
+ Average Thread Creation     : 18382.622000 
+gcc process_creation.c ../include/rdtsc.c -o ../bin/processCreation
+nice ../bin/processCreation
+ --- [ Benchmarking Process Creation ] --- 
+ Time to run 1000 iteration  : 1164951092 
+ Average Process Creation    : 1164951.092000 
+gcc task_creation.c ../include/rdtsc.c -o ../bin/taskCreation
+nice ../bin/taskCreation
+ --- [ Benchmarking Task Creation ] --- 
+ - Running Thread Creation ... 
+ Time to run 1000 iteration  : 28540757 
+ Average Thread Creation     : 28540.757000 
+ - Running Process Creation ... 
+ Time to run 1000 iteration  : 7281047297 
+ Average Process Creation    : 7281047.297000 
+gcc thread_contextSwitch.c ../include/rdtsc.c -o ../bin/thread_contextSwitch
+nice ../bin/thread_contextSwitch
+ --- [ Benchmarking Context Switch between Thread ] --- 
+ Time to run 1000 iteration  : 44210108 
+ Average Context Switch     : 44210.108000 
+gcc process_contextSwitch.c ../include/rdtsc.c -o ../bin/process_contextSwitch
+nice ../bin/process_contextSwitch
+ --- [ Benchmarking Context Switch between Process ] --- 
+ Time to run 1000 iteration  : 481301615 
+ Average Context Switch     : 481301.615000 
